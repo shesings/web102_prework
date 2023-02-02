@@ -9,7 +9,9 @@ import GAMES_DATA from './games.js';
 
 // create a list of objects to store the data about the games using JSON.parse
 const GAMES_JSON = JSON.parse(GAMES_DATA)
-
+console.log(GAMES_JSON);
+addGamesToPage(GAMES_JSON);
+// console.log(GAMES_JSON.length);
 // remove all child elements from a parent element in the DOM
 function deleteChildElements(parent) {
     while (parent.firstChild) {
@@ -27,23 +29,38 @@ const gamesContainer = document.getElementById("games-container");
 
 // create a function that adds all data from the games array to the page
 function addGamesToPage(games) {
-
+    var i = 0;
     // loop over each item in the data
+        for(i; i < games.length; i++) {
+            const game = games[i];
+             // create a new div element, which will become the game card
+            let gameCard = document.createElement('div');
+            // add the class game-card to the list
+            gameCard.classList.add("game-card");
 
-
-        // create a new div element, which will become the game card
-
-
-        // add the class game-card to the list
-
-
-        // set the inner HTML using a template literal to display some info 
+         // set the inner HTML using a template literal to display some info 
+         const gameInfo = `
+         <img class="game-img" src="${game.img}" />
+         <h4>Name: ${game.name}</p>
+         <p>Pledged: ${game.pledged}</p>
+        `;
+        
+        gameCard.innerHTML = gameInfo;
+     
         // about each game
         // TIP: if your images are not displaying, make sure there is space
         // between the end of the src attribute and the end of the tag ("/>")
-
-
+        
         // append the game to the games-container
+        document.getElementById("games-container").appendChild(gameCard);
+        }
+
+        
+
+
+       
+
+        
 
 }
 
