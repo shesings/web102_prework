@@ -41,8 +41,8 @@ function addGamesToPage(games) {
          // set the inner HTML using a template literal to display some info 
          const gameInfo = `
          <img class="game-img" src="${game.img}" />
-         <h4>Name: ${game.name}</p>
-         <p>Pledged: ${game.pledged}</p>
+         <h3>${game.name}</h3>
+         <p>Number Pledged: ${game.pledged}</p>
         `;
         
         gameCard.innerHTML = gameInfo;
