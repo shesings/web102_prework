@@ -54,14 +54,6 @@ function addGamesToPage(games) {
         // append the game to the games-container
         document.getElementById("games-container").appendChild(gameCard);
         }
-
-        
-
-
-       
-
-        
-
 }
 
 // call the function we just defined using the correct variable
@@ -78,20 +70,29 @@ function addGamesToPage(games) {
 const contributionsCard = document.getElementById("num-contributions");
 
 // use reduce() to count the number of total contributions by summing the backers
-
+const totalContributions = GAMES_JSON.reduce( (totalBackers, game) => { 
+    return totalBackers + game.backers;
+}, 0);
 
 // set the inner HTML using a template literal and toLocaleString to get a number with commas
-
+console.log(totalContributions.toLocaleString('en-US'));
+contributionsCard.innerHTML = totalContributions.toLocaleString('en-US');
 
 // grab the amount raised card, then use reduce() to find the total amount raised
 const raisedCard = document.getElementById("total-raised");
 
 // set inner HTML using template literal
+const totalRaised = GAMES_JSON.reduce((totalRaised, game) => {
+    return totalRaised + game.pledged;
+}, 0);
 
+console.log(totalRaised.toLocaleString('en-US'));
+raisedCard.innerHTML = "$" + totalRaised.toLocaleString('en-US');
 
 // grab number of games card and set its inner HTML
 const gamesCard = document.getElementById("num-games");
-
+const totalGames = GAMES_JSON.length;
+gamesCard.innerHTML = totalGames;
 
 /*************************************************************************************
  * Challenge 5: Add functions to filter the funded and unfunded games
