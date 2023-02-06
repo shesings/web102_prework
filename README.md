@@ -38,6 +38,8 @@ GIF created with LiceCap
 
 Describe any challenges encountered while building the app.
 
+None that I can think of, I think the challenges were really well thought out!
+
 ## License
 
     Copyright 2023 Sheetal Singh
